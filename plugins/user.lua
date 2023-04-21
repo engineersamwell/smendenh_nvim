@@ -18,7 +18,8 @@ return {
       require("nx").setup {}
     end
   },
-  { "phaazon/hop.nvim",
+  {
+    "phaazon/hop.nvim",
     event = "BufRead",
     config = function()
       require("hop").setup()
@@ -33,4 +34,16 @@ return {
       require("todo-comments").setup()
     end,
   },
+  {
+    "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("chatgpt").setup()
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  }
 }
