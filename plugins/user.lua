@@ -45,5 +45,15 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim"
     }
-  }
+  },
+  -- { "catppuccin/nvim", name = "catppuccin" }
+  {
+    "navarasu/onedark.nvim",
+    config = function()
+      require("onedark").setup {
+        style = 'darker'
+      }
+    end,
+  },
+  { 'IndianBoy42/tree-sitter-just' }
 }

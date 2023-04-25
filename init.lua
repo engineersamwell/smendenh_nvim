@@ -17,7 +17,9 @@ return {
     },
   },
   -- Set colorscheme to use
-  colorscheme = "astrodark",
+  -- colorscheme = "astrodark",
+  -- colorscheme = "catppuccin",
+  colorscheme = "onedark",
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     virtual_text = true,
@@ -31,6 +33,7 @@ return {
         enabled = true,     -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
+          "python",
         },
         ignore_filetypes = { -- disable format on save for specified filetypes
           -- "python",
@@ -45,9 +48,14 @@ return {
       -- end
     },
     -- enable servers that you already have installed without mason
-    servers = {
-      -- "pyright"
-    },
+    -- servers = {
+    --   "pyright"
+    -- },
+    -- config = {
+    --   pyright = {
+    --
+    --   }
+    -- }
   },
   -- Configure require("lazy").setup() options
   lazy = {
