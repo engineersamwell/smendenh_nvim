@@ -47,14 +47,35 @@ return {
     }
   },
   -- { "catppuccin/nvim", name = "catppuccin" }
+  -- {
+  --   "navarasu/onedark.nvim",
+  --   config = function()
+  --     require("onedark").setup {
+  --       style = 'darker'
+  --     }
+  --   end,
+  -- },
+  -- I like the colors here but the contrast is very high, will take a lot to get used to it
+  -- https://github.com/Shatur/neovim-ayu
+  -- {
+  --   'Shatur/neovim-ayu',
+  --   config = function()
+  --     require("ayu").setup {
+  --       options = {
+  --         -- theme 'ayu'
+  --       }
+  --     }
+  --   end,
+  -- },
+  -- https://github.com/rebelot/kanagawa.nvim
   {
-    "navarasu/onedark.nvim",
-    config = function()
-      require("onedark").setup {
-        style = 'darker'
-      }
-    end,
+    "rebelot/kanagawa.nvim"
   },
+  -- TODO: Try https://github.com/morhetz/gruvbox
+  -- Consider People rave about https://github.com/rebelot/kanagawa.nvim
+  -- Consider: https://github.com/nyoom-engineering/oxocarbon.nvim
+  -- Consider: - https://github.com/srcery-colors/srcery-vim
+  -- Consider https://github.com/whatyouhide/vim-gotham
   {
     'IndianBoy42/tree-sitter-just',
     config = function()

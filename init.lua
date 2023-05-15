@@ -1,3 +1,5 @@
+-- local util = require('lspconfig.util');
+
 return {
   -- Configure AstroNvim updates
   updater = {
@@ -19,7 +21,12 @@ return {
   -- Set colorscheme to use
   -- colorscheme = "astrodark",
   -- colorscheme = "catppuccin",
-  colorscheme = "onedark",
+  -- colorscheme = "onedark",
+  -- I kinda like this one, but the contrast is pretty high so not 100% sure yet
+  -- https://github.com/Shatur/neovim-ayu
+  -- colorscheme = "ayu",
+  -- https://github.com/rebelot/kanagawa.nvim
+  colorscheme = "kanagawa",
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     virtual_text = true,
@@ -28,19 +35,33 @@ return {
   lsp = {
     -- customize lsp formatting options
     formatting = {
+      -- Not only did this section not work but I prefer how it's done in mason.lua
+      -- filter = function(client)
+      --   -- Disable prettier for javascript files in favor of Rome
+      --   if (client.name == "prettier" or client.name == "prettierd") and (vim.bo.filetype == "javascript" or vim.bo.filetype == "typescript") then
+      --     return false
+      --   end
+      --
+      --   -- enable all other clients
+      --   return true
+      -- end,
       -- control auto formatting on save
       format_on_save = {
         enabled = true,     -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
-          "python",
+          -- "python",
+          -- "html",
+          -- "typescript",
+          -- "javascript",
         },
         ignore_filetypes = { -- disable format on save for specified filetypes
           -- "python",
         },
       },
       disabled = { -- disable formatting capabilities for the listed language servers
-        -- "sumneko_lua",
+        -- "prettier",
+        -- "prettierd",
       },
       timeout_ms = 1000, -- default format timeout
       -- filter = function(client) -- fully override the default formatting function
@@ -51,11 +72,14 @@ return {
     -- servers = {
     --   "pyright"
     -- },
-    -- config = {
-    --   pyright = {
-    --
-    --   }
-    -- }
+    config = {
+      -- pyright = {
+      --
+      -- }
+      rome = {
+        -- root_dir = util.root_pattern("rome.json")
+      }
+    }
   },
   -- Configure require("lazy").setup() options
   lazy = {

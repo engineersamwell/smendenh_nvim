@@ -9,4 +9,5 @@ return {
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.lua" },
+  { import = "astrocommunity.pack.markdown" },
 }

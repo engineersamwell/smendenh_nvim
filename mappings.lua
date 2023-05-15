@@ -28,7 +28,11 @@ return {
     },
     ["<leader>an"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["<leader>a"] = { name = "Actions" },
+    -- *********************************
     -- Extending the lsp info
+    -- *********************************
+
+    -- Mimic lunarvim for a quick jump to next dianostic
     ["<leader>lj"] = {
       function() vim.diagnostic.goto_next({ noremap=true, silent=true}) end,
       desc = "Next Diagnostic"
@@ -41,6 +45,13 @@ return {
       function() vim.diagnostic.open_float({ noremap=true, silent=true}) end,
       desc = "Open Diagnostic"
     },
+    -- https://github.com/nvim-neo-tree/neo-tree.nvim/wiki/Recipes
+    -- Neo-tree sometimes opens in buff or git vs filesystem, we always want it to open in filesystem
+    -- ["<leader>e"] = {
+    --   function() vim.api.nvim_exec('Neotree focus filesystem left', true) end,
+    --   desc = "Open Neo-Tree FS"
+    -- },
+
   },
   t = {
     -- setting a mapping to false will disable it
