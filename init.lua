@@ -124,6 +124,7 @@ return {
       -- },
       filename = {
         ["justfile"] = "make",
+        ["Jenkinsfile"] = "groovy",
       },
       -- pattern = {
       --   ["~/%.config/foo/.*"] = "fooscript",
