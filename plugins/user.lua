@@ -10,13 +10,16 @@ return {
   --   end,
   -- },
   {
-    'Equilibris/nx.nvim',
+    "github/copilot.vim",
+    event = "VeryLazy",
+    autoStart = true,
+  },
+  {
+    "Equilibris/nx.nvim",
     requires = {
-      'nvim-telescope/telescope.nvim',
+      "nvim-telescope/telescope.nvim",
     },
-    config = function()
-      require("nx").setup {}
-    end
+    config = function() require("nx").setup {} end,
   },
   {
     "phaazon/hop.nvim",
@@ -30,21 +33,17 @@ return {
   {
     "folke/todo-comments.nvim",
     event = "BufRead",
-    config = function()
-      require("todo-comments").setup()
-    end,
+    config = function() require("todo-comments").setup() end,
   },
   {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
-    config = function()
-      require("chatgpt").setup()
-    end,
+    config = function() require("chatgpt").setup() end,
     dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim"
-    }
+      "nvim-telescope/telescope.nvim",
+    },
   },
   -- { "catppuccin/nvim", name = "catppuccin" }
   -- {
@@ -69,7 +68,7 @@ return {
   -- },
   -- https://github.com/rebelot/kanagawa.nvim
   {
-    "rebelot/kanagawa.nvim"
+    "rebelot/kanagawa.nvim",
   },
   -- TODO: Try https://github.com/morhetz/gruvbox
   -- Consider People rave about https://github.com/rebelot/kanagawa.nvim
@@ -77,9 +76,11 @@ return {
   -- Consider: - https://github.com/srcery-colors/srcery-vim
   -- Consider https://github.com/whatyouhide/vim-gotham
   {
-    'IndianBoy42/tree-sitter-just',
-    config = function()
-      require("tree-sitter-just").setup()
-    end,
-  }
+    "IndianBoy42/tree-sitter-just",
+    config = function() require("tree-sitter-just").setup() end,
+  },
+  {
+    "wuelnerdotexe/vim-astro",
+    ft = "astro",
+  },
 }

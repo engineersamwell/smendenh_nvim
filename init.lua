@@ -78,8 +78,8 @@ return {
       -- }
       rome = {
         -- root_dir = util.root_pattern("rome.json")
-      }
-    }
+      },
+    },
   },
   -- Configure require("lazy").setup() options
   lazy = {
@@ -102,9 +102,9 @@ return {
     -- vim.o.formatoptions = vim.o.formatoptions:gsub("c", "");
     -- vim.o.formatoptions = vim.o.formatoptions:gsub("r", "");
     -- vim.o.formatoptions = vim.o.formatoptions:gsub("o", "");
-    vim.opt.formatoptions:remove("c");
-    vim.opt.formatoptions:remove("r");
-    vim.opt.formatoptions:remove("o");
+    vim.opt.formatoptions:remove "c"
+    vim.opt.formatoptions:remove "r"
+    vim.opt.formatoptions:remove "o"
 
     -- Make sure the just tree sitter is installed
     require("nvim-treesitter.parsers").get_parser_configs().just = {
@@ -112,7 +112,7 @@ return {
         url = "https://github.com/IndianBoy42/tree-sitter-just", -- local path or git repo
         files = { "src/parser.c", "src/scanner.cc" },
         branch = "main",
-        use_makefile = true -- this may be necessary on MacOS (try if you see compiler errors)
+        use_makefile = true, -- this may be necessary on MacOS (try if you see compiler errors)
       },
       maintainers = { "@IndianBoy42" },
     }
@@ -125,6 +125,7 @@ return {
       filename = {
         ["justfile"] = "make",
         ["Jenkinsfile"] = "groovy",
+        ["astro"] = "astro",
       },
       -- pattern = {
       --   ["~/%.config/foo/.*"] = "fooscript",

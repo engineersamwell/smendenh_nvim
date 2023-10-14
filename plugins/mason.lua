@@ -22,7 +22,7 @@ return {
         -- for prettier
         prettier = function()
           require("null-ls").register(require("null-ls").builtins.formatting.prettier.with {
-            disabled_filetypes = { "typescript", "javascript" }
+            disabled_filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact" },
             -- condition = function(utils)
             --   -- Ensure prettier is disabled as we want to use Rome
             --   -- return utils.root_has_file "package.json"
@@ -35,7 +35,7 @@ return {
         -- for prettierd
         prettierd = function()
           require("null-ls").register(require("null-ls").builtins.formatting.prettierd.with {
-            disabled_filetypes = { "typescript", "javascript" }
+            disabled_filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact" },
             -- condition = function(utils)
             --   -- Ensure prettier is disabled as we want to use Rome
             --   -- return utils.root_has_file "package.json"
@@ -48,7 +48,7 @@ return {
         -- For eslint_d:
         eslint_d = function()
           require("null-ls").register(require("null-ls").builtins.diagnostics.eslint_d.with {
-            disabled_filetypes = { "typescript", "javascript" }
+            disabled_filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact" },
             -- condition = function(utils)
             --   -- Ensure prettier is disabled as we want to use Rome
             --   -- return false
