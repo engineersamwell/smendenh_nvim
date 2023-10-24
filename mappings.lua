@@ -11,7 +11,9 @@ return {
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["<leader>bD"] = {
       function()
-        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr) require("astronvim.utils.buffer").close(bufnr) end)
+        require("astronvim.utils.status").heirline.buffer_picker(
+          function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
+        )
       end,
       desc = "Pick to close",
     },
@@ -21,10 +23,12 @@ return {
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     ["<S-l>"] = {
-      function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer"
+      function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+      desc = "Next buffer",
     },
     ["<S-h>"] = {
-      function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end, desc = "Previous buffer",
+      function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+      desc = "Previous buffer",
     },
     ["<leader>an"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["<leader>a"] = { name = "Actions" },
@@ -34,16 +38,16 @@ return {
 
     -- Mimic lunarvim for a quick jump to next dianostic
     ["<leader>lj"] = {
-      function() vim.diagnostic.goto_next({ noremap=true, silent=true}) end,
-      desc = "Next Diagnostic"
+      function() vim.diagnostic.goto_next { noremap = true, silent = true } end,
+      desc = "Next Diagnostic",
     },
     ["<leader>lk"] = {
-      function() vim.diagnostic.goto_prev({ noremap=true, silent=true}) end,
-      desc = "Prev Diagnostic"
+      function() vim.diagnostic.goto_prev { noremap = true, silent = true } end,
+      desc = "Prev Diagnostic",
     },
     ["<leader>le"] = {
-      function() vim.diagnostic.open_float({ noremap=true, silent=true}) end,
-      desc = "Open Diagnostic"
+      function() vim.diagnostic.open_float { noremap = true, silent = true } end,
+      desc = "Open Diagnostic",
     },
     -- https://github.com/nvim-neo-tree/neo-tree.nvim/wiki/Recipes
     -- Neo-tree sometimes opens in buff or git vs filesystem, we always want it to open in filesystem
@@ -51,10 +55,16 @@ return {
     --   function() vim.api.nvim_exec('Neotree focus filesystem left', true) end,
     --   desc = "Open Neo-Tree FS"
     -- },
-
   },
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
+  },
+  i = {
+    -- This is not perfect but it's the best I can do right now
+    ["<Tab>"] = { 'copilot#Accept("<CR>")', silent = true, expr = true },
+    ["<F8>"] = { 'copilot#Accept("<CR>")', silent = true, expr = true },
+    ["<F9>"] = { "copilot#Next()", silent = true, expr = true },
+    ["<f12>"] = { "copilot#Previous()", silent = true, expr = true },
   },
 }

@@ -9,18 +9,20 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
-  {
-    "github/copilot.vim",
-    event = "VeryLazy",
-    autoStart = true,
-  },
-  {
-    "Equilibris/nx.nvim",
-    requires = {
-      "nvim-telescope/telescope.nvim",
-    },
-    config = function() require("nx").setup {} end,
-  },
+  -- https://github.com/zbirenbaum/copilot.lua/discussions/99#discussioncomment-4483942
+  -- DO NOT USE THIS github/copilot.vim, see the plugins/community.lua
+  -- {
+  --   "github/copilot.vim",
+  --   event = "VeryLazy",
+  --   autoStart = true,
+  -- },
+  -- {
+  --   "Equilibris/nx.nvim",
+  --   requires = {
+  --     "nvim-telescope/telescope.nvim",
+  --   },
+  --   config = function() require("nx").setup {} end,
+  -- },
   {
     "phaazon/hop.nvim",
     event = "BufRead",
@@ -35,16 +37,16 @@ return {
     event = "BufRead",
     config = function() require("todo-comments").setup() end,
   },
-  {
-    "jackMort/ChatGPT.nvim",
-    event = "VeryLazy",
-    config = function() require("chatgpt").setup() end,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-  },
+  -- {
+  --   "jackMort/ChatGPT.nvim",
+  --   event = "VeryLazy",
+  --   config = function() require("chatgpt").setup() end,
+  --   dependencies = {
+  --     "MunifTanjim/nui.nvim",
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-telescope/telescope.nvim",
+  --   },
+  -- },
   -- { "catppuccin/nvim", name = "catppuccin" }
   -- {
   --   "navarasu/onedark.nvim",

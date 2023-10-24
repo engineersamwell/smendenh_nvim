@@ -3,16 +3,16 @@
 return {
   -- Configure AstroNvim updates
   updater = {
-    remote = "origin",     -- remote to use
-    channel = "stable",    -- "stable" or "nightly"
-    version = "latest",    -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
-    branch = "nightly",    -- branch name (NIGHTLY ONLY)
-    commit = nil,          -- commit hash (NIGHTLY ONLY)
-    pin_plugins = nil,     -- nil, true, false (nil will pin plugins on stable only)
-    skip_prompts = false,  -- skip prompts about breaking changes
+    remote = "origin", -- remote to use
+    channel = "stable", -- "stable" or "nightly"
+    version = "latest", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
+    branch = "nightly", -- branch name (NIGHTLY ONLY)
+    commit = nil, -- commit hash (NIGHTLY ONLY)
+    pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)
+    skip_prompts = false, -- skip prompts about breaking changes
     show_changelog = true, -- show the changelog after performing an update
-    auto_quit = false,     -- automatically quit the current session after a successful update
-    remotes = {            -- easily add new remotes to track
+    auto_quit = false, -- automatically quit the current session after a successful update
+    remotes = { -- easily add new remotes to track
       --   ["remote_name"] = "https://remote_url.come/repo.git", -- full remote url
       --   ["remote2"] = "github_user/repo", -- GitHub user/repo shortcut,
       --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
@@ -47,7 +47,7 @@ return {
       -- end,
       -- control auto formatting on save
       format_on_save = {
-        enabled = true,     -- enable or disable format on save globally
+        enabled = true, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
           -- "python",
@@ -101,10 +101,21 @@ return {
     -- Last set from /opt/homebrew/Cellar/neovim/0.8.3/share/nvim/runtime/ftplugin/lua.vim line 18
     -- vim.o.formatoptions = vim.o.formatoptions:gsub("c", "");
     -- vim.o.formatoptions = vim.o.formatoptions:gsub("r", "");
-    -- vim.o.formatoptions = vim.o.formatoptions:gsub("o", "");
-    vim.opt.formatoptions:remove "c"
-    vim.opt.formatoptions:remove "r"
-    vim.opt.formatoptions:remove "o"
+    -- vim.opt.formatoptions:remove "c"
+    -- vim.opt.formatoptions:remove "r"
+    -- vim.opt.formatoptions:remove "o"
+    -- vim.opt_local.formatoptions:remove { "c", "r", "o" }
+    -- set formatoptions-=cro
+
+    -- https://github.com/AstroNvim/AstroNvim/issues/1593
+    vim.api.nvim_create_autocmd("Filetype", {
+      pattern = "*",
+      command = [[set fo-=c fo-=r fo-=o]],
+    })
+
+    -- vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+    -- vim.api.nvim_set_keymap("i", "<C-H>", 'copilot#Previous()', { silent = true, expr = true })
+    -- vim.api.nvim_set_keymap("i", "<C-K>", 'copilot#Next()', { silent = true, expr = true })
 
     -- Make sure the just tree sitter is installed
     require("nvim-treesitter.parsers").get_parser_configs().just = {
