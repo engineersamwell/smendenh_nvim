@@ -64,7 +64,7 @@ return {
     -- This is not perfect but it's the best I can do right now
     ["<Tab>"] = { 'copilot#Accept("<CR>")', silent = true, expr = true },
     ["<F8>"] = { 'copilot#Accept("<CR>")', silent = true, expr = true },
-    ["<F9>"] = { "copilot#Next()", silent = true, expr = true },
-    ["<f12>"] = { "copilot#Previous()", silent = true, expr = true },
+    ["<F9>"] = { "copilot#Previous()", silent = true, expr = true },
+    ["<f12>"] = { "copilot#Next()", silent = true, expr = true },
   },
 }

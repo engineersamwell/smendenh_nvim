@@ -128,6 +128,19 @@ return {
       maintainers = { "@IndianBoy42" },
     }
 
+    -- Enable list mode (display special characters)
+    vim.opt.list = true
+
+    -- Customize listchars
+    -- set listchars=space:·,tab:->\
+    vim.opt.listchars = {
+      tab = "▸ ", -- Tab character
+      trail = "·", -- Trailing whitespace
+      extends = ">", -- Show in folded lines
+      precedes = "<", -- Show in folded lines
+      nbsp = "␣", -- Non-breaking space
+    }
+
     -- Set up custom filetypes
     vim.filetype.add {
       -- extension = {
