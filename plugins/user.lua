@@ -81,10 +81,10 @@ return {
     "IndianBoy42/tree-sitter-just",
     config = function() require("tree-sitter-just").setup() end,
   },
-  {
-    "wuelnerdotexe/vim-astro",
-    ft = "astro",
-  },
+  -- {
+  --   "wuelnerdotexe/vim-astro",
+  --   ft = "astro",
+  -- },
   -- {
   --   "neovim/nvim-lspconfig",
   --   opts = {
