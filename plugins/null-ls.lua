@@ -2,12 +2,30 @@ return {
   "jose-elias-alvarez/null-ls.nvim",
   opts = function(_, config)
     -- config variable is the default configuration table for the setup function call
-    local null_ls = require "null-ls"
+
+    local nls = require("null-ls").builtins
 
     -- Check supported formatters and linters
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
     config.sources = {
+
+      nls.formatting.rome.with { command = "biome" },
+
+      -- 12/14/2023 This didn't work as expected
+      -- nls.formatting.biome,
+      -- -- or if you like to live dangerously like me:
+      -- nls.formatting.biome.with {
+      --   args = {
+      --     "check",
+      --     "--apply-unsafe",
+      --     "--formatter-enabled=true",
+      --     "--organize-imports-enabled=true",
+      --     "--skip-errors",
+      --     "$FILENAME",
+      --   },
+      -- },
+
       -- Set a formatter
       -- null_ls.builtins.formatting.stylua,
       -- null_ls.builtins.formatting.prettier,

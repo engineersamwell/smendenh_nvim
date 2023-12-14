@@ -3,16 +3,16 @@
 return {
   -- Configure AstroNvim updates
   updater = {
-    remote = "origin", -- remote to use
-    channel = "stable", -- "stable" or "nightly"
-    version = "latest", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
-    branch = "nightly", -- branch name (NIGHTLY ONLY)
-    commit = nil, -- commit hash (NIGHTLY ONLY)
-    pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)
-    skip_prompts = false, -- skip prompts about breaking changes
+    remote = "origin",     -- remote to use
+    channel = "stable",    -- "stable" or "nightly"
+    version = "latest",    -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
+    branch = "nightly",    -- branch name (NIGHTLY ONLY)
+    commit = nil,          -- commit hash (NIGHTLY ONLY)
+    pin_plugins = nil,     -- nil, true, false (nil will pin plugins on stable only)
+    skip_prompts = false,  -- skip prompts about breaking changes
     show_changelog = true, -- show the changelog after performing an update
-    auto_quit = false, -- automatically quit the current session after a successful update
-    remotes = { -- easily add new remotes to track
+    auto_quit = false,     -- automatically quit the current session after a successful update
+    remotes = {            -- easily add new remotes to track
       --   ["remote_name"] = "https://remote_url.come/repo.git", -- full remote url
       --   ["remote2"] = "github_user/repo", -- GitHub user/repo shortcut,
       --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
@@ -35,19 +35,9 @@ return {
   lsp = {
     -- customize lsp formatting options
     formatting = {
-      -- Not only did this section not work but I prefer how it's done in mason.lua
-      -- filter = function(client)
-      --   -- Disable prettier for javascript files in favor of Rome
-      --   if (client.name == "prettier" or client.name == "prettierd") and (vim.bo.filetype == "javascript" or vim.bo.filetype == "typescript") then
-      --     return false
-      --   end
-      --
-      --   -- enable all other clients
-      --   return true
-      -- end,
       -- control auto formatting on save
       format_on_save = {
-        enabled = true, -- enable or disable format on save globally
+        enabled = true,     -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
           -- "python",
@@ -70,7 +60,15 @@ return {
     },
     -- enable servers that you already have installed without mason
     -- servers = {
-    --   "pyright"
+    --   tsserver = {
+    --     on_attach = function(client)
+    --       -- this is important, otherwise tsserver will format ts/js
+    --       -- files which we *really* don't want.
+    --       client.server_capabilities.documentFormattingProvider = false
+    --     end,
+    --   },
+    --   biome = {},
+    --   -- other language servers
     -- },
     config = {
       -- pyright = {
@@ -113,6 +111,19 @@ return {
       command = [[set fo-=c fo-=r fo-=o]],
     })
 
+    -- set listchars=nbsp:•,eol:↲,tab:»\ ,extends:›,precedes:‹,trail:␣
+    -- set list
+
+    -- In a neovim configuration add listchars
+
+    -- eol = "↵",
+    -- Set the listchars space to be a dot
+    -- tab »\\
+    -- https://www.reddit.com/r/vim/comments/b8wbzb/shows_tabs_and_spaces_as_dots_in_vim_like_sublime/
+    -- eol = "↲"
+    vim.opt.listchars = { nbsp = "•", tab = "»\\", trail = "␣", extends = "›", precedes = "‹" }
+    vim.opt.list = true
+    -- vim.api.nvim_set_option "list"
     -- vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
     -- vim.api.nvim_set_keymap("i", "<C-H>", 'copilot#Previous()', { silent = true, expr = true })
     -- vim.api.nvim_set_keymap("i", "<C-K>", 'copilot#Next()', { silent = true, expr = true })
